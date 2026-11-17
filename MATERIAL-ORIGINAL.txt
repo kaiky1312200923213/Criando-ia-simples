@@ -1,0 +1,34 @@
+MATERIAL ORIGINAL PRESERVADO
+
+Este arquivo guarda o conteúdo que antes estava no README.md. Ele foi preservado para manter os exemplos e anotações originais acessíveis durante a organização do portfólio.
+
+IMPORTANTE: valores que pareciam chaves de API foram substituídos por SUA_CHAVE_NVIDIA_AQUI. Use variáveis de ambiente para credenciais e nunca publique tokens.
+
+--- CONTEÚDO ANTERIOR ---
+
+# Criando-ia-simples
+Criando ia simples com python usando chat-bot
+from openai import OpenAI
+
+API_KEY = ""
+
+cliente = OpenAI(
+    api_key=API_KEY,
+    base_url="https://integrate.api.nvidia.com/v1"
+)
+
+resposta = cliente.chat.completions.create(
+    model="meta/llama-3.1-8b-instruct",
+    messages=[
+        {
+            "role": "system",
+            "content": "Você é um especialista em Star Wars."
+        },
+        {
+            "role": "user",
+            "content": "Olá, o que é você?"
+        }
+    ]
+)
+
+print(resposta.choices[0].message.content)
